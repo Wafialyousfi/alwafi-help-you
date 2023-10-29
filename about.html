@@ -22,9 +22,9 @@
     <a href="about.html" id="aboutLink"> <i class="fas fa-user"></i> <span id="aboutText">about</span> </a>
     <a href="portfolio.html" id="portfolioLink"> <i class="fas fa-briefcase"></i> <span id="portfolioText">portfolio</span> </a>
     <a href="blogs.html" id="skillsLink"> <i class="fas fa-blog"></i> <span id="skillsText">skills</span> </a>
-    <a href="contact.html" id="contactLink"> <i class="fas fa-address-book"></i> <span id="contactText">contact</span> </a>
-    
-   
+    <a href="contact.html" id="contactLink"> <i class="fas fa-address-book"></i> <span   id="contactText">contact</span> </a>
+    <a href="#" onclick="changeLanguage('en')" id="englishLink">English</a>
+    <a href="#" onclick="changeLanguage('ar')" id="arabicLink">عربي</a>
 </nav>
 
 
@@ -72,17 +72,17 @@
             </div>
             <div class="box">
                 <h3>120+</h3>
-                <p id="happyCountText">happy clients</p>
+                <p id="happyText">happy clients</p>
             </div>
 
             <div class="box">
                 <h3>70+</h3>
-                <p id="experienceCountText">project completed</p>
+                <p id="projectCountText">project completed</p>
             </div>
 
             <div class="box">
                 <h3>10+</h3>
-                <p id="experienceCountText">awards won</p>
+                <p id="awardsCountText">awards won</p>
             </div>
             <!-- أضف الصناديق الأخرى هنا -->
 
@@ -189,53 +189,52 @@
 <!-- education section ends -->
 
 
+
 <script>
-    var languageData = {};
+    var languageData = {}; // تخزين البيانات المحملة هنا
 
     function loadLanguage(lang) {
-        fetch(`${lang}.json`)
-            .then(response => response.json())
-            .then(data => {
-                languageData[lang] = data;
-                updateTexts();
-            })
-            .catch(error => console.error('Error loading language file:', error));
-    }
-
-    function toggleLanguage() {
-        var currentLang = document.documentElement.lang;
-        if (currentLang === "en") {
-            document.documentElement.lang = "ar";
-            if (!languageData["ar"]) {
-                loadLanguage("arabic");
-            } else {
-                updateTexts();
-            }
-        } else {
-            document.documentElement.lang = "en";
+    fetch(`${lang}.json`)
+        .then(response => response.json())
+        .then(data => {
+            languageData[lang] = data;
             updateTexts();
-        }
-    }
+        })
+        .catch(error => console.error('Error loading language file:', error));
+}
+
 
     function updateTexts() {
         var currentLang = document.documentElement.lang;
         var data = languageData[currentLang];
         if (data) {
-            document.getElementById('homeLink').href = "index.html";
             document.getElementById('homeText').textContent = data.home;
-            document.getElementById('aboutLink').href = "about.html";
             document.getElementById('aboutText').textContent = data.about;
-            // ... العناصر الأخرى
-
+            document.getElementById('portfolioText').textContent = data.portfolio;
+            document.getElementById('skillsText').textContent = data.skills;
+            document.getElementById('contactText').textContent = data.contact;
             document.getElementById('hiText').textContent = data.hi;
-            document.getElementById('developerText').textContent = data.developer;
+            document.getElementById('experienceCountText').textContent = data.experienceCount;
+            document.getElementById('nameText').textContent = data.name;
+            document.getElementById('ageText').textContent = data.age;
+            document.getElementById('emailText').textContent = data.email;
+            document.getElementById('addressText').textContent = data.address;
+            document.getElementById('freelanceText').textContent = data.freelance;
+            document.getElementById('skillText').textContent = data.skill;
             document.getElementById('experienceText').textContent = data.experience;
-            document.getElementById('aboutBtnText').textContent = data.aboutBtn;
+            document.getElementById('languageText').textContent = data.language;                  
+            document.getElementById('happyText').textContent = data.happy;
+            document.getElementById('projectCountText').textContent = data.projectCount;
+            document.getElementById('awardsCountText').textContent = data.awardsCount;
         }
     }
 
-    loadLanguage("english");
-</script>
+    function changeLanguage(lang) {
+    document.documentElement.lang = lang;
+    loadLanguage(lang);
+}
 
+    loadLanguage("en"); // تحميل اللغة الإنجليزية كلغة افتراضية
+</script>
 </body>
 
