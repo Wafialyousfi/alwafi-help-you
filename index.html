@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- navbar section starts  -->
+
+    <nav class="navbar">
+        <a href="index.html" id="homeLink"> <i class="fas fa-home"></i> <span id="homeText">home</span> </a>
+        <a href="about.html" id="aboutLink"> <i class="fas fa-user"></i> <span id="aboutText">about</span> </a>
+        <a href="portfolio.html" id="portfolioLink"> <i class="fas fa-briefcase"></i> <span id="portfolioText">portfolio</span> </a>
+        <a href="blogs.html" id="skillsLink"> <i class="fas fa-blog"></i> <span id="skillsText">skills</span> </a>
+        <a href="contact.html" id="contactLink"> <i class="fas fa-address-book"></i> <span   id="contactText">contact</span> </a>
+        <a href="#" onclick="changeLanguage('en')" id="englishLink">English</a>
+        <a href="#" onclick="changeLanguage('ar')" id="arabicLink">عربي</a>
+    </nav>
+
+    <!-- home section starts  -->
+
+    <section class="home">
+
+        <div class="image">
+            <img src="images/user.png" alt="">
+        </div>
+
+        <div class="content">
+            <h3 id="hiText">hi, i am wafi alyousfi</h3>
+            <span id="developerText">front-end and back-end developer</span>
+            <p id="experienceText">Practical experience and projects in the IT field</p>
+            <a href="about.html" class="btn"> about me <i class="fas fa-user"></i> </a>
+        </div>
+
+    </section>
+
+    <!-- home section ends -->
+
+    <script>
+        var languageData = {}; // تخزين البيانات المحملة هنا
+
+        function loadLanguage(lang) {
+            fetch(`${lang}.json`)
+                .then(response => response.json())
+                .then(data => {
+                    languageData[lang] = data;
+                    updateTexts();
+                })
+                .catch(error => console.error('Error loading language file:', error));
+        }
+
+        function updateTexts() {
+            var currentLang = document.documentElement.lang;
+            var data = languageData[currentLang];
+            if (data) {
+                document.getElementById('homeText').textContent = data.home;
+                document.getElementById('aboutText').textContent = data.about;
+                document.getElementById('portfolioText').textContent = data.portfolio;
+                document.getElementById('skillsText').textContent = data.skills;
+                document.getElementById('contactText').textContent = data.contact;
+                document.getElementById('hiText').textContent = data.hi;
+                document.getElementById('developerText').textContent = data.developer;
+                document.getElementById('experienceText').textContent = data.experience;
+            }
+        }
+
+        function changeLanguage(lang) {
+            document.documentElement.lang = lang;
+            updateTexts();
+        }
+
+        loadLanguage("en"); // تحميل اللغة الإنجليزية كلغة افتراضية
+    </script>
+</body>
+
+</html>
