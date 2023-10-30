@@ -40,6 +40,42 @@
     "projectDesc5": "Provides features of e-School. If you have any questions, feel free to reach out. Thank you for choosing e-School!",
     "projectDesc6": "All-in-one Online Course Selling and eBook selling Platform",
     "readMore": "read more",
+    "education": {
+        "heading": "My Education",
+        "points": [
+            {
+                "date": "2019 - 2020",
+                "title": "Front-end Development",
+                "description": "I made a lot of projects for customers worldwide."
+            },
+            {
+                "date": "2020 - 2021",
+                "title": "Front-end Development",
+                "description": "Design in Adobe XD and Photoshop."
+            },
+            {
+                "date": "2021 - 2022",
+                "title": "Front-end Development",
+                "description": "Worked on a Flutter application and learned more languages."
+            },
+            {
+                "date": "2022 - 2023",
+                "title": "Back-end Development",
+                "description": "Just started with Laravel on the back-end and Flutter."
+            },
+            {
+                "date": "2023 - 2024",
+                "title": "Back-end Development",
+                "description": "Worked on a lot of projects for customers like E-commerce and Pixer!"
+            },
+            {
+                "date": "2023 - 2024",
+                "title": "Front-end Development",
+                "description": "Worked in an academy!"
+            }
+        ]
+    },
+    
     "skilles": {
         "title": "My Skills",
         "items": [
