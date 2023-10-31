@@ -81,27 +81,33 @@
         "items": [
             {
                 "title": "Python",
-                "description": "Work with Python front and back-end"
+                "description": "Work with Python front and back-end",
+                "image": "images/icon-1.png"
             },
             {
                 "title": "Design",
-                "description": "Design in Adobe XD and Photoshop"
+                "description": "Design in Adobe XD and Photoshop",
+                "image": "images/icon-2.jpg"
             },
             {
                 "title": "Development",
-                "description": "Now I can do something new with my best team"
+                "description": "Now I can do something new with my best team",
+                "image": "images/icon-3.png"
             },
             {
                 "title": "Build Application",
-                "description": "Build with Flutter and Java"
+                "description": "Build with Flutter and Java",
+                "image": "images/icon-4.png"
             },
             {
                 "title": "Laravel",
-                "description": "Build with back-end and front-end"
+                "description": "Build with back-end and front-end",
+                "image": "images/icon-5.jpg"
             },
             {
                 "title": "PHP Dev",
-                "description": "100% good job"
+                "description": "100% good job",
+                "image": "images/icon-6.jpg"
             }
         ]
     }

@@ -81,27 +81,33 @@
         "items": [
             {
                 "title": "بايثون",
-                "description": "العمل مع بايثون في الجبهة والخلف"
+                "description": "العمل مع بايثون في الجبهة والخلف",
+                "image": "images/icon-1.png"
             },
             {
                 "title": "تصميم",
-                "description": "التصميم في Adobe XD و Photoshop"
+                "description": "التصميم في Adobe XD و Photoshop",
+                "image": "images/icon-2.jpg"
             },
             {
                 "title": "تطوير",
-                "description": "الآن أستطيع فعل شيء جديد مع أفضل فريق لدي"
+                "description": "الآن أستطيع فعل شيء جديد مع أفضل فريق لدي",
+                "image": "images/icon-3.png"
             },
             {
                 "title": "بناء التطبيق",
-                "description": "البناء باستخدام Flutter و Java"
+                "description": "البناء باستخدام Flutter و Java",
+                "image": "images/icon-4.png"
             },
             {
                 "title": "لارافيل",
-                "description": "البناء بالجبهة والخلف"
+                "description": "البناء بالجبهة والخلف",
+                "image": "images/icon-5.jpg"
             },
             {
                 "title": "PHP Dev",
-                "description": "100% عمل جيد"
+                "description": "100% عمل جيد",
+                "image": "images/icon-6.jpg"
             }
         ]
     }
