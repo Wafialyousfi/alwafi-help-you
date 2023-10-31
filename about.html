@@ -101,12 +101,6 @@
     <!-- skills section starts  -->
 
 
-    <!-- skills section ends -->
-
-    <!-- education section starts  -->
-
-  
-
     <!-- education section ends -->
 
 
@@ -120,7 +114,7 @@
                 .then(data => {
                     languageData[lang] = data;
                     updateTexts();
-                  
+                   
                 })
                 .catch(error => console.error('Error loading language file:', error));
         }
@@ -135,9 +129,7 @@
                 document.getElementById('portfolioText').textContent = data.portfolio;
                 document.getElementById('skillsText').textContent = data.skills;
                 document.getElementById('contactText').textContent = data.contact;
-                document.getElementById('meText').textContent = data.me;
-                document.getElementById('aboutHeading').textContent = data.aboutme;
-                document.getElementById('personalInfoHeading').textContent = data.personalInfo;
+                document.getElementById('hiText').textContent = data.hi;
                 document.getElementById('experienceCountText').textContent = data.experienceCount;
                 document.getElementById('nameText').textContent = data.name;
                 document.getElementById('ageText').textContent = data.age;
@@ -150,32 +142,6 @@
                 document.getElementById('happyText').textContent = data.happy;
                 document.getElementById('projectCountText').textContent = data.projectCount;
                 document.getElementById('awardsCountText').textContent = data.awardsCount;
-                document.getElementById('educationTitle1').textContent = data.title1;
-                document.getElementById('educationDesc1').textContent = data.description1;
-                document.getElementById('educationTitle2').textContent = data.title2;
-                document.getElementById('educationDesc2').textContent = data.description2;
-                document.getElementById('educationTitle3').textContent = data.title3;
-                document.getElementById('educationDesc3').textContent = data.description3;
-                document.getElementById('educationTitle4').textContent = data.title4;
-                document.getElementById('educationDesc4').textContent = data.description4;
-                document.getElementById('educationTitle5').textContent = data.title5;
-                document.getElementById('educationDesc5').textContent = data.description5;
-                document.getElementById('educationTitle6').textContent = data.title6;
-                document.getElementById('educationDesc6').textContent = data.description6;
-                document.getElementById('educationTitle6').textContent = data.title6;
-                document.getElementById('educationDesc6').textContent = data.description6;
-                document.getElementById('skilltitle7').textContent = data.title7;
-                document.getElementById('educationdata6').textContent = data.data6;
-                document.getElementById('skilltitle8').textContent = data.title8;
-                document.getElementById('educationdata1').textContent = data.data1;
-                document.getElementById('skilltitle9').textContent = data.title9;
-                document.getElementById('educationdata2').textContent = data.data2;
-                document.getElementById('skilltitle10').textContent = data.title10;
-                document.getElementById('educationdata3').textContent = data.data3;
-                document.getElementById('skilltitle11').textContent = data.title11;
-                document.getElementById('educationdata4').textContent = data.data4;
-                document.getElementById('skilltitle12').textContent = data.title12;
-                document.getElementById('educationdata5').textContent = data.data5;
             }
         }
         // يجب تغيير 'ar.json' بالملف الصحيح للغة العربية
