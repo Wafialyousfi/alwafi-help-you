@@ -115,7 +115,6 @@
 
     <!-- education section ends -->
 
-
     <script>
         function changeLanguage(lang) {
             document.documentElement.lang = lang;
@@ -130,17 +129,20 @@
                 .then(response => response.json())
                 .then(data => {
                     languageData[lang] = data;
-                    updateTexts(); // تحديث النصوص بعد تحميل اللغة
+                    updateTexts(); 
+                    updateSkillsTexts();
+                    // تحديث النصوص بعد تحميل اللغة
                 })
                 .catch(error => console.error('Error loading language file:', error));
         }
+
 
         // عند تحميل البيانات الخاصة بالصور (skills)
         fetch('en.json')
             .then(response => response.json())
             .then(data => {
                 const skillsSection = document.getElementById('skillsBoxContainer');
-                data.skills.items.forEach(skill => {
+                data.skilles.items.forEach(skill => {
                     const box = document.createElement('div');
                     box.className = 'box';
 
@@ -161,8 +163,8 @@
                     skillsSection.appendChild(box);
                 });
 
-                updateSkillsTexts(); // تحديث النصوص بعد تحميل الصور
                 updateTexts(); // تحديث النصوص بعد تحميل الصور
+                updateSkillsTexts();
             })
             .catch(error => console.error('Error fetching JSON:', error));
 
@@ -176,12 +178,10 @@
                 // تحديث النصوص الأخرى الخاصة بالمهارات...
             }
         }
-
         function updateTexts() {
             var currentLang = document.documentElement.lang;
             var data = languageData[currentLang];
             if (data) {
-
                 document.getElementById('homeText').textContent = data.home;
                 document.getElementById('aboutText').textContent = data.about;
                 document.getElementById('portfolioText').textContent = data.portfolio;
@@ -204,5 +204,6 @@
             }
         }
     </script>
+   
 
 </body>
