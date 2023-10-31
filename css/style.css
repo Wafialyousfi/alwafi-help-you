@@ -681,10 +681,10 @@ section {
 
 /* Style the dropdown button */
 .dropbtn {
-  background-color: #3498DB;
+  background-color: #1a1a1a;
   color: white;
   padding: 12px;
-  font-size: 25px;
+  font-size: 12px;
   border: none;
   cursor: pointer;
 }
