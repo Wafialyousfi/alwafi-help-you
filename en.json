@@ -40,75 +40,35 @@
     "projectDesc5": "Provides features of e-School. If you have any questions, feel free to reach out. Thank you for choosing e-School!",
     "projectDesc6": "All-in-one Online Course Selling and eBook selling Platform",
     "readMore": "read more",
-    "education": {
-        "heading": "My Education",
-        "points": [
-            {
-                "date": "2019 - 2020",
-                "title": "Front-end Development",
-                "description": "I made a lot of projects for customers worldwide."
-            },
-            {
-                "date": "2020 - 2021",
-                "title": "Front-end Development",
-                "description": "Design in Adobe XD and Photoshop."
-            },
-            {
-                "date": "2021 - 2022",
-                "title": "Front-end Development",
-                "description": "Worked on a Flutter application and learned more languages."
-            },
-            {
-                "date": "2022 - 2023",
-                "title": "Back-end Development",
-                "description": "Just started with Laravel on the back-end and Flutter."
-            },
-            {
-                "date": "2023 - 2024",
-                "title": "Back-end Development",
-                "description": "Worked on a lot of projects for customers like E-commerce and Pixer!"
-            },
-            {
-                "date": "2023 - 2024",
-                "title": "Front-end Development",
-                "description": "Worked in an academy!"
-            }
-        ]
-    },
-    
-    "skilles": {
-        "title": "My Skills",
-        "items": [
-            {
-                "title": "Python",
-                "description": "Work with Python front and back-end",
-                "image": "images/icon-1.png"
-            },
-            {
-                "title": "Design",
-                "description": "Design in Adobe XD and Photoshop",
-                "image": "images/icon-2.jpg"
-            },
-            {
-                "title": "Development",
-                "description": "Now I can do something new with my best team",
-                "image": "images/icon-3.png"
-            },
-            {
-                "title": "Build Application",
-                "description": "Build with Flutter and Java",
-                "image": "images/icon-4.png"
-            },
-            {
-                "title": "Laravel",
-                "description": "Build with back-end and front-end",
-                "image": "images/icon-5.jpg"
-            },
-            {
-                "title": "PHP Dev",
-                "description": "100% good job",
-                "image": "images/icon-6.jpg"
-            }
-        ]
-    }
+    "education": "My Education",
+    "date1": "2019 - 2020",
+    "title1": "Front-end Development",
+    "description1": "I made a lot of projects for customers worldwide.",
+    "date2": "2020 - 2021",
+    "title2": "Front-end Development",
+    "description2": "Design in Adobe XD and Photoshop.",
+    "date3": "2021 - 2022",
+    "title3": "Front-end Development",
+    "description3": "Worked on a Flutter application and learned more languages.",
+    "date4": "2022 - 2023",
+    "title4": "Back-end Development",
+    "description4": "Just started with Laravel on the back-end and Flutter.",
+    "date5": "2023 - 2024",
+    "title5": "Back-end Development",
+    "description5": "Worked on a lot of projects for customers like E-commerce and Pixer!",
+    "date6": "2023 - 2024",
+    "title6": "Front-end Development",
+    "skilles": "My Skills",
+    "title7": "Python",
+    "description7": "Work with Python front and back-end",
+    "title8": "Design",
+    "description8": "Design in Adobe XD and Photoshop",
+    "title9": "Development",
+    "description9": "Now I can do something new with my best team",
+    "title10": "Build Application",
+    "description10": "Build with Flutter and Java",
+    "title11": "Laravel",
+    "description11": "Build with back-end and front-end",
+    "title12": "PHP Dev",
+    "description12": "100% good job"
 }

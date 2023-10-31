@@ -101,107 +101,117 @@
     <!-- skills section starts  -->
 
     <section class="skills" id="skillsSection">
-        <h1 class="heading" id="skillsHeading"><span id="myText">my</span> skills</h1>
+
+        <h1 class="heading" id="skillsHeading"> <span id="myText">my</span> skills </h1>
+
         <div class="box-container" id="skillsBoxContainer">
-            <!-- سيتم توليد الصناديق هنا باستخدام السكريبت -->
-        </div>
+            <div class="box-container">
+                <div class="box">
+                    <img src="images/icon-1.png">
+                    <h3 id="skilltitle1">html</h3>
+                </div>
+                <div class="box">
+                    <img src="images/icon-2.jpg">
+                    <h3 id="skilltitle2">php</h3>
+                </div>
+                <div class="box">
+                    <img src="images/icon-3.png">
+                    <h3 id="skilltitle3">javascript</h3>
+                </div>
+                <div class="box">
+                    <img src="images/icon-4.png">
+                    <h3 id="skilltitle4">sass</h3>
+                </div>
+                <div class="box">
+                    <img src="images/icon-5.jpg">
+                    <h3 id="skilltitle5">flutter </h3>
+                </div>
+                <div class="box">
+                    <img src="images/icon-6.jpg">
+                    <h3 id="skilltitle6">python</h3>
+                </div>
+            </div>
+
     </section>
 
     <!-- skills section ends -->
 
     <!-- education section starts  -->
 
+    <section class="education" id="educationSection">
 
+        <h1 class="heading" id="educationHeading"> <span id="myText">my</span> education </h1>
+
+
+        <div class="box-container">
+
+            <div class="box" id="educationBox">
+                <i class="fas fa-graduation-cap"></i>
+                <span id="educationdata1">2019 - 2020</span>
+                <h3 id="educationTitle1">front-end</h3>
+                <p id="educationDesc1">i make alot project for the customer in the word</p>
+            </div>
+
+            <!-- وهكذا... تكرر هذا النمط لباقي الـ boxes -->
+
+
+            <div class="box" id="educationBox2">
+                <i class="fas fa-graduation-cap"></i>
+                <span id="educationdata2">2020 - 2021</span>
+                <h3 id="educationTitle2">front-end</h3>
+                <p id="educationDesc2">i disgen in adobe xd and photshop</p>
+            </div>
+
+            <div class="box" id="educationBox3">
+                <i class="fas fa-graduation-cap"></i>
+                <span id="educationdata3">2021 - 2022</span>
+                <h3 id="educationTitle3">fornt-end</h3>
+                <p id="educationDesc3">make flutte aplocatin and lean more lungauge</p>
+            </div>
+
+            <div class="box" id="educationBox4">
+                <i class="fas fa-graduation-cap"></i>
+                <span id="educationdata4">2022 - 2023</span>
+                <h3 id="educationTitle4">back-end development</h3>
+                <p id="educationDesc4">gust i bigen with larvel back and flutter</p>
+            </div>
+
+            <div class="box" id="educationBox5">
+                <i class="fas fa-graduation-cap"></i>
+                <span id="educationdata5">2023 - 2024</span>
+                <h3 id="educationTitle5">back-end development</h3>
+                <p id="educationDesc5">i work alote of project for customer exm Ecommer and pixer !</p>
+            </div>
+
+            <div class="box" id="educationBox6">
+                <i class="fas fa-graduation-cap"></i>
+                <span id="educationdata6">2023 - 2024</span>
+                <h3 id="educationTitle6">front-end</h3>
+                <p id="educationDesc6">i work in acdyem !</p>
+            </div>
+
+        </div>
+
+    </section>
 
     <!-- education section ends -->
 
-    <script>
-        function changeLanguage(lang) {
-            document.documentElement.lang = lang;
-            loadLanguage(lang);
-            updateTexts(); // تحديث النصوص بعد تحميل اللغة الجديدة
-        }
 
-        loadLanguage("en");
+
+    <script>
+        var languageData = {}; // تخزين البيانات المحملة هنا
 
         function loadLanguage(lang) {
             fetch(`${lang}.json`)
                 .then(response => response.json())
                 .then(data => {
                     languageData[lang] = data;
-                    updateTexts(); 
-                    updateSkillsTexts();
-                    // تحديث النصوص بعد تحميل اللغة
+                    updateTexts();
+                  
                 })
                 .catch(error => console.error('Error loading language file:', error));
         }
 
-
-        // عند تحميل البيانات الخاصة بالصور (skills)
-        fetch('en.json')
-            .then(response => response.json())
-            .then(data => {
-                const skillsSection = document.getElementById('skillsBoxContainer');
-                data.skilles.items.forEach(skill => {
-                    const box = document.createElement('div');
-                    box.className = 'box';
-
-                    const image = document.createElement('img');
-                    image.src = skill.image; // رابط الصورة
-                    image.alt = skill.title; // نص بديل للصورة
-
-                    const title = document.createElement('h3');
-                    title.textContent = skill.title;
-
-                    const description = document.createElement('p');
-                    description.textContent = skill.description;
-
-                    box.appendChild(image);
-                    box.appendChild(title);
-                    box.appendChild(description);
-
-                    skillsSection.appendChild(box);
-                });
-
-                updateTexts(); // تحديث النصوص بعد تحميل الصور
-                updateSkillsTexts();
-            })
-            .catch(error => console.error('Error fetching JSON:', error));
-
-        var languageData = {}; // تخزين البيانات المحملة هنا
-
-      function updateSkillsTexts() {
-    var currentLang = document.documentElement.lang;
-    var data = languageData[currentLang];
-    if (data) {
-        document.getElementById('skillsHeading').textContent = data.skills.title;
-
-        var skillItems = data.skills.items;
-        var skillsContainer = document.getElementById('skillsBoxContainer');
-        skillsContainer.innerHTML = ''; // لحذف أي عناصر سابقة في حال تم تحميل لغة جديدة
-
-        skillItems.forEach(skill => {
-            const box = document.createElement('div');
-            box.className = 'box';
-
-            const image = document.createElement('img');
-            image.src = skill.image;
-            image.alt = skill.title;
-
-            const title = document.createElement('h3');
-            title.textContent = skill.title;
-
-            const description = document.createElement('p');
-            description.textContent = skill.description;
-
-            box.appendChild(image);
-            box.appendChild(title);
-            box.appendChild(description);
-
-            skillsContainer.appendChild(box);
-        });
-    }
-}
 
         function updateTexts() {
             var currentLang = document.documentElement.lang;
@@ -225,10 +235,44 @@
                 document.getElementById('happyText').textContent = data.happy;
                 document.getElementById('projectCountText').textContent = data.projectCount;
                 document.getElementById('awardsCountText').textContent = data.awardsCount;
-                // تحديث النصوص الأخرى...
+                document.getElementById('educationTitle1').textContent = data.title1;
+                document.getElementById('educationDesc1').textContent = data.description1;
+                document.getElementById('educationTitle2').textContent = data.title2;
+                document.getElementById('educationDesc2').textContent = data.description2;
+                document.getElementById('educationTitle3').textContent = data.title3;
+                document.getElementById('educationDesc3').textContent = data.description3;
+                document.getElementById('educationTitle4').textContent = data.title4;
+                document.getElementById('educationDesc4').textContent = data.description4;
+                document.getElementById('educationTitle5').textContent = data.title5;
+                document.getElementById('educationDesc5').textContent = data.description5;
+                document.getElementById('educationTitle6').textContent = data.title6;
+                document.getElementById('educationDesc6').textContent = data.description6;
+                document.getElementById('educationTitle6').textContent = data.title6;
+                document.getElementById('educationDesc6').textContent = data.description6;
+                document.getElementById('skilltitle1').textContent = data.title7;
+                document.getElementById('educationdata6').textContent = data.data6;
+                document.getElementById('skilltitle2').textContent = data.title8;
+                document.getElementById('educationdata1').textContent = data.data1;
+                document.getElementById('skilltitle3').textContent = data.title9;
+                document.getElementById('educationdata2').textContent = data.data2;
+                document.getElementById('skilltitle4').textContent = data.title10;
+                document.getElementById('educationdata3').textContent = data.data3;
+                document.getElementById('skilltitle5').textContent = data.title11;
+                document.getElementById('educationdata4').textContent = data.data4;
+                document.getElementById('skilltitle6').textContent = data.title12;
+                document.getElementById('educationdata5').textContent = data.data5;
+                document.getElementById('projectCountText').textContent = data.projectCount;
+                document.getElementById('awardsCountText').textContent = data.awardsCount;
             }
         }
-    </script>
-   
+        // يجب تغيير 'ar.json' بالملف الصحيح للغة العربية
 
+
+        function changeLanguage(lang) {
+            document.documentElement.lang = lang;
+            loadLanguage(lang);
+        }
+
+        loadLanguage("en"); // تحميل اللغة الإنجليزية كلغة افتراضية
+    </script>
 </body>
