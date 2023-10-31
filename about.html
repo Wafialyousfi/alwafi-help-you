@@ -105,64 +105,72 @@
 
     <!-- skills section ends -->
 
+ 
+
     <script>
+        // تحديث اللغة والمهارات
         function changeLanguage(lang) {
             document.documentElement.lang = lang;
-            loadLanguage(lang);
+            fetchLanguageAndSkillsData();
         }
 
-        loadLanguage("en");
+        document.addEventListener("DOMContentLoaded", function () {
+            fetchLanguageAndSkillsData();
+        });
 
-        function loadLanguage(lang) {
-            fetch(`${lang}.json`)
+        function fetchLanguageAndSkillsData() {
+            fetchLanguageData();
+            fetchSkillsData();
+        }
+
+        // تحميل البيانات للغة
+        function fetchLanguageData() {
+            fetch(`${document.documentElement.lang}.json`)
                 .then(response => response.json())
                 .then(data => {
-                    languageData[lang] = data;
+                    languageData[document.documentElement.lang] = data;
                     updateTexts();
-                    updateSkillsTexts();
                 })
                 .catch(error => console.error('Error loading language file:', error));
         }
 
-        var languageData = {};
+        // تحميل البيانات للمهارات
+        function fetchSkillsData() {
+            fetch(`${document.documentElement.lang}.json`)
+                .then(response => response.json())
+                .then(data => {
+                    const skillsSection = document.getElementById('skillsBoxContainer');
+                    data.skills.items.forEach(skill => {
+                        const box = document.createElement('div');
+                        box.className = 'box';
 
-        function updateSkillsTexts() {
-            var currentLang = document.documentElement.lang;
-            var data = languageData[currentLang];
-            if (data) {
-                document.getElementById('skillsHeading').textContent = data.skills.title;
+                        const image = document.createElement('img');
+                        image.src = skill.image;
+                        image.alt = skill.title;
 
-                var skillItems = data.skills.items;
-                var skillsContainer = document.getElementById('skillsBoxContainer');
-                skillsContainer.innerHTML = '';
+                        const title = document.createElement('h3');
+                        title.textContent = skill.title;
 
-                skillItems.forEach(skill => {
-                    const box = document.createElement('div');
-                    box.className = 'box';
+                        const description = document.createElement('p');
+                        description.textContent = skill.description;
 
-                    const image = document.createElement('img');
-                    image.src = skill.image;
-                    image.alt = skill.title;
+                        box.appendChild(image);
+                        box.appendChild(title);
+                        box.appendChild(description);
 
-                    const title = document.createElement('h3');
-                    title.textContent = skill.title;
-
-                    const description = document.createElement('p');
-                    description.textContent = skill.description;
-
-                    box.appendChild(image);
-                    box.appendChild(title);
-                    box.appendChild(description);
-
-                    skillsContainer.appendChild(box);
-                });
-            }
+                        skillsSection.appendChild(box);
+                    });
+                })
+                .catch(error => console.error('Error fetching JSON:', error));
         }
+
+        var languageData = {};
 
         function updateTexts() {
             var currentLang = document.documentElement.lang;
             var data = languageData[currentLang];
             if (data) {
+                document.getElementById('aboutHeading').textContent = data.about.heading;
                 document.getElementById('homeText').textContent = data.home;
                 document.getElementById('aboutText').textContent = data.about;
                 document.getElementById('portfolioText').textContent = data.portfolio;
@@ -180,9 +188,10 @@
                 document.getElementById('happyText').textContent = data.happy;
                 document.getElementById('projectCountText').textContent = data.projectCount;
                 document.getElementById('awardsCountText').textContent = data.awardsCount;
+                // تحديث النصوص الأخرى...
             }
         }
     </script>
-
 </body>
+
 </html>
