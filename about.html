@@ -36,65 +36,7 @@
 
     <!-- about section starts  -->
 
-    <section class="about">
 
-        <h1 class="heading" id="aboutHeading"> about <span id="meText">me</span> </h1>
-
-        <div class="row">
-
-            <div class="info-container" id="infoContainer">
-
-                <h1 id="personalInfoHeading">personal info</h1>
-
-                <div class="box-container">
-
-                    <div class="box" id="personalInfoBox1">
-                        <h3> <span id="nameText">name :</span> Wafi Alyousfi </h3>
-                        <h3> <span id="ageText">age :</span> 24</h3>
-                        <h3> <span id="emailText">email :</span> wafy539@gmail.com </h3>
-                        <h3> <span id="addressText">address :</span> alsafeh, sana`a - 22</h3>
-                    </div>
-
-                    <div class="box" id="personalInfoBox2">
-                        <h3> <span id="freelanceText">freelance :</span> available </h3>
-                        <h3> <span id="skillText">skill :</span> front-end back-end desgin </h3>
-                        <h3> <span id="experienceText">experience :</span> 2 years </h3>
-                        <h3> <span id="languageText">language :</span> Arabic, english </h3>
-                    </div>
-
-                </div>
-
-                <a href="#" class="btn" id="downloadBtn"> download CV <i class="fas fa-download"></i> </a>
-
-            </div>
-
-            <div class="count-container" id="countContainer">
-
-                <div class="box">
-                    <h3>2+</h3>
-                    <p id="experienceCountText">years of experience</p>
-                </div>
-                <div class="box">
-                    <h3>120+</h3>
-                    <p id="happyText">happy clients</p>
-                </div>
-
-                <div class="box">
-                    <h3>70+</h3>
-                    <p id="projectCountText">project completed</p>
-                </div>
-
-                <div class="box">
-                    <h3>10+</h3>
-                    <p id="awardsCountText">awards won</p>
-                </div>
-                <!-- أضف الصناديق الأخرى هنا -->
-
-            </div>
-
-        </div>
-
-    </section>
 
     <!-- about section ends -->
 
@@ -114,65 +56,24 @@
     </section>
 
     <!-- education section ends -->
-    <script>
-        var languageData = {}; // تخزين البيانات المحملة هنا
-
-        function loadLanguage(lang) {
-            fetch(`${lang}.json`)
-                .then(response => response.json())
-                .then(data => {
-                    languageData[lang] = data;
-                    updateTexts();
-                    const educationSection = document.getElementById('educationBoxes');
-                    data.education.points.forEach(point => {
-                        const box = document.createElement('div');
-                        box.className = 'box';
-                        box.innerHTML = `
-                    <i class="fas fa-graduation-cap"></i>
-                    <span>${point.date}</span>
-                    <h3>${point.title}</h3>
-                    <p>${point.description}</p>
+   <!-- الجزء الجديد من السكريبت لعرض محتوى المهارات -->
+<script>
+    fetch('en.json') // استبدل 'data.json' بـ 'en.json'
+        .then(response => response.json())
+        .then(data => {
+            const skillsSection = document.getElementById('skillsBoxes');
+            data.skilles.items.forEach(skill => {
+                const box = document.createElement('div');
+                box.className = 'box';
+                box.innerHTML = `
+                    <h3>${skill.title}</h3>
+                    <p>${skill.description}</p>
                 `;
-                        educationSection.appendChild(box);
-                    });
-                })
-                .catch(error => console.error('Error loading language file:', error));
-        }
+                skillsSection.appendChild(box);
+            });
+        })
+        .catch(error => console.error('Error fetching JSON:', error));
+</script>
 
-
-        function updateTexts() {
-            var currentLang = document.documentElement.lang;
-            var data = languageData[currentLang];
-            if (data) {
-                document.getElementById('homeText').textContent = data.home;
-                document.getElementById('aboutText').textContent = data.about;
-                document.getElementById('portfolioText').textContent = data.portfolio;
-                document.getElementById('skillsText').textContent = data.skills;
-                document.getElementById('contactText').textContent = data.contact;
-                document.getElementById('hiText').textContent = data.hi;
-                document.getElementById('experienceCountText').textContent = data.experienceCount;
-                document.getElementById('nameText').textContent = data.name;
-                document.getElementById('ageText').textContent = data.age;
-                document.getElementById('emailText').textContent = data.email;
-                document.getElementById('addressText').textContent = data.address;
-                document.getElementById('freelanceText').textContent = data.freelance;
-                document.getElementById('skillText').textContent = data.skill;
-                document.getElementById('experienceText').textContent = data.experience;
-                document.getElementById('languageText').textContent = data.language;
-                document.getElementById('happyText').textContent = data.happy;
-                document.getElementById('projectCountText').textContent = data.projectCount;
-                document.getElementById('awardsCountText').textContent = data.awardsCount;
-            }
-        }
-        // يجب تغيير 'ar.json' بالملف الصحيح للغة العربية
-
-
-        function changeLanguage(lang) {
-            document.documentElement.lang = lang;
-            loadLanguage(lang);
-        }
-
-        loadLanguage("en"); // تحميل اللغة الإنجليزية كلغة افتراضية
-    </script>
    
 </body>
