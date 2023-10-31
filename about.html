@@ -22,11 +22,9 @@
     <nav class="navbar">
         <a href="index.html" id="homeLink"> <i class="fas fa-home"></i> <span id="homeText">home</span> </a>
         <a href="about.html" id="aboutLink"> <i class="fas fa-user"></i> <span id="aboutText">about</span> </a>
-        <a href="portfolio.html" id="portfolioLink"> <i class="fas fa-briefcase"></i> <span
-                id="portfolioText">portfolio</span> </a>
+        <a href="portfolio.html" id="portfolioLink"> <i class="fas fa-briefcase"></i> <span id="portfolioText">portfolio</span> </a>
         <a href="blogs.html" id="skillsLink"> <i class="fas fa-blog"></i> <span id="skillsText">skills</span> </a>
-        <a href="contact.html" id="contactLink"> <i class="fas fa-address-book"></i> <span
-                id="contactText">contact</span> </a>
+        <a href="contact.html" id="contactLink"> <i class="fas fa-address-book"></i> <span id="contactText">contact</span> </a>
         <a href="#" onclick="changeLanguage('en')" id="englishLink">English</a>
         <a href="#" onclick="changeLanguage('ar')" id="arabicLink">عربي</a>
     </nav>
@@ -57,9 +55,9 @@
 
                     <div class="box" id="personalInfoBox2">
                         <h3> <span id="freelanceText">freelance :</span> available </h3>
-                        <h3> <span id="skillText">skill :</span> front-end back-end desgin </h3>
+                        <h3> <span id="skillText">skill :</span> front-end back-end design </h3>
                         <h3> <span id="experienceText">experience :</span> 2 years </h3>
-                        <h3> <span id="languageText">language :</span> Arabic, english </h3>
+                        <h3> <span id="languageText">language :</span> Arabic, English </h3>
                     </div>
 
                 </div>
@@ -88,7 +86,7 @@
                     <h3>10+</h3>
                     <p id="awardsCountText">awards won</p>
                 </div>
-                <!-- أضف الصناديق الأخرى هنا -->
+                <!-- Add other boxes here -->
 
             </div>
 
@@ -96,17 +94,24 @@
 
     </section>
 
-    <!-- about section ends -->
-
     <!-- skills section starts  -->
 
+    <section class="skills" id="skillsSection">
+        <h1 class="heading" id="skillsHeading"><span id="myText">my</span> skills</h1>
+        <div class="box-container" id="skillsBoxContainer">
+            <!-- Boxes will be generated here using the script -->
+        </div>
+    </section>
 
-    <!-- education section ends -->
-
-
+    <!-- skills section ends -->
 
     <script>
-        var languageData = {}; // تخزين البيانات المحملة هنا
+        function changeLanguage(lang) {
+            document.documentElement.lang = lang;
+            loadLanguage(lang);
+        }
+
+        loadLanguage("en");
 
         function loadLanguage(lang) {
             fetch(`${lang}.json`)
@@ -114,11 +119,45 @@
                 .then(data => {
                     languageData[lang] = data;
                     updateTexts();
-                   
+                    updateSkillsTexts();
                 })
                 .catch(error => console.error('Error loading language file:', error));
         }
 
+        var languageData = {};
+
+        function updateSkillsTexts() {
+            var currentLang = document.documentElement.lang;
+            var data = languageData[currentLang];
+            if (data) {
+                document.getElementById('skillsHeading').textContent = data.skills.title;
+
+                var skillItems = data.skills.items;
+                var skillsContainer = document.getElementById('skillsBoxContainer');
+                skillsContainer.innerHTML = '';
+
+                skillItems.forEach(skill => {
+                    const box = document.createElement('div');
+                    box.className = 'box';
+
+                    const image = document.createElement('img');
+                    image.src = skill.image;
+                    image.alt = skill.title;
+
+                    const title = document.createElement('h3');
+                    title.textContent = skill.title;
+
+                    const description = document.createElement('p');
+                    description.textContent = skill.description;
+
+                    box.appendChild(image);
+                    box.appendChild(title);
+                    box.appendChild(description);
+
+                    skillsContainer.appendChild(box);
+                });
+            }
+        }
 
         function updateTexts() {
             var currentLang = document.documentElement.lang;
@@ -129,7 +168,6 @@
                 document.getElementById('portfolioText').textContent = data.portfolio;
                 document.getElementById('skillsText').textContent = data.skills;
                 document.getElementById('contactText').textContent = data.contact;
-                document.getElementById('hiText').textContent = data.hi;
                 document.getElementById('experienceCountText').textContent = data.experienceCount;
                 document.getElementById('nameText').textContent = data.name;
                 document.getElementById('ageText').textContent = data.age;
@@ -144,14 +182,7 @@
                 document.getElementById('awardsCountText').textContent = data.awardsCount;
             }
         }
-        // يجب تغيير 'ar.json' بالملف الصحيح للغة العربية
-
-
-        function changeLanguage(lang) {
-            document.documentElement.lang = lang;
-            loadLanguage(lang);
-        }
-
-        loadLanguage("en"); // تحميل اللغة الإنجليزية كلغة افتراضية
     </script>
+
 </body>
+</html>
