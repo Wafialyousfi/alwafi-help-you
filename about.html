@@ -171,13 +171,38 @@
         var languageData = {}; // تخزين البيانات المحملة هنا
 
         function updateSkillsTexts() {
-            var currentLang = document.documentElement.lang;
-            var data = languageData[currentLang];
-            if (data) {
-                document.getElementById('skillsHeading').textContent = data.skillsHeading;
-                // تحديث النصوص الأخرى الخاصة بالمهارات...
-            }
-        }
+    var currentLang = document.documentElement.lang;
+    var data = languageData[currentLang];
+    if (data) {
+        document.getElementById('skillsHeading').textContent = data.skilles.title;
+
+        var skillItems = data.skilles.items;
+        var skillsContainer = document.getElementById('skillsBoxContainer');
+        skillsContainer.innerHTML = ''; // لحذف أي عناصر سابقة في حال تم تحميل لغة جديدة
+
+        skillItems.forEach(skill => {
+            const box = document.createElement('div');
+            box.className = 'box';
+
+            const image = document.createElement('img');
+            image.src = skill.image;
+            image.alt = skill.title;
+
+            const title = document.createElement('h3');
+            title.textContent = skill.title;
+
+            const description = document.createElement('p');
+            description.textContent = skill.description;
+
+            box.appendChild(image);
+            box.appendChild(title);
+            box.appendChild(description);
+
+            skillsContainer.appendChild(box);
+        });
+    }
+}
+
         function updateTexts() {
             var currentLang = document.documentElement.lang;
             var data = languageData[currentLang];
