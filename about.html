@@ -100,12 +100,7 @@
 
     <!-- skills section starts  -->
 
-    <section class="skills" id="skillsSection">
-        <h1 class="heading" id="skillsHeading"><span id="myText">my</span> skills</h1>
-        <div class="box-container" id="skillsBoxContainer">
-            <!-- سيتم توليد الصناديق هنا باستخدام السكريبت -->
-        </div>
-    </section>
+  
 
     <!-- skills section ends -->
 
@@ -179,32 +174,5 @@
 
         loadLanguage("en"); // تحميل اللغة الإنجليزية كلغة افتراضية
     </script>
-    <script>
-        fetch('data.json')
-            .then(response => response.json())
-            .then(data => {
-                const skillsSection = document.getElementById('skillsBoxContainer');
-                data.skilles.items.forEach(skill => {
-                    const box = document.createElement('div');
-                    box.className = 'box';
-    
-                    const image = document.createElement('img');
-                    image.src = skill.image; // رابط الصورة
-                    image.alt = skill.title; // نص بديل للصورة
-    
-                    const title = document.createElement('h3');
-                    title.textContent = skill.title;
-    
-                    const description = document.createElement('p');
-                    description.textContent = skill.description;
-    
-                    box.appendChild(image);
-                    box.appendChild(title);
-                    box.appendChild(description);
-    
-                    skillsSection.appendChild(box);
-                });
-            })
-            .catch(error => console.error('Error fetching JSON:', error));
-    </script>
+   
 </body>
