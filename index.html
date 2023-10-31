@@ -26,12 +26,18 @@
         <a href="portfolio.html" id="portfolioLink"> <i class="fas fa-briefcase"></i> <span id="portfolioText">portfolio</span> </a>
         <a href="blogs.html" id="skillsLink"> <i class="fas fa-blog"></i> <span id="skillsText">skills</span> </a>
         <a href="contact.html" id="contactLink"> <i class="fas fa-address-book"></i> <span   id="contactText">contact</span> </a>
-        <a href="#" onclick="changeLanguage('en')" id="englishLink">English</a>
-        <a href="#" onclick="changeLanguage('ar')" id="arabicLink">عربي</a>
+       
     </nav>
 
     <!-- home section starts  -->
-
+    <div class="dropdown">
+        <button class="dropbtn">Select Language</button>
+        <div class="dropdown-content">
+            <a href="#" onclick="changeLanguage('en')">English</a>
+            <a href="#" onclick="changeLanguage('ar')">عربي</a>
+            <!-- Add more language options as needed -->
+        </div>
+    </div>
     <section class="home">
 
         <div class="image">
