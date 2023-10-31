@@ -22,11 +22,9 @@
     <nav class="navbar">
         <a href="index.html" id="homeLink"> <i class="fas fa-home"></i> <span id="homeText">home</span> </a>
         <a href="about.html" id="aboutLink"> <i class="fas fa-user"></i> <span id="aboutText">about</span> </a>
-        <a href="portfolio.html" id="portfolioLink"> <i class="fas fa-briefcase"></i> <span
-                id="portfolioText">portfolio</span> </a>
+        <a href="portfolio.html" id="portfolioLink"> <i class="fas fa-briefcase"></i> <span id="portfolioText">portfolio</span> </a>
         <a href="blogs.html" id="skillsLink"> <i class="fas fa-blog"></i> <span id="skillsText">skills</span> </a>
-        <a href="contact.html" id="contactLink"> <i class="fas fa-address-book"></i> <span
-                id="contactText">contact</span> </a>
+        <a href="contact.html" id="contactLink"> <i class="fas fa-address-book"></i> <span id="contactText">contact</span> </a>
         <a href="#" onclick="changeLanguage('en')" id="englishLink">English</a>
         <a href="#" onclick="changeLanguage('ar')" id="arabicLink">عربي</a>
     </nav>
@@ -170,7 +168,6 @@
                 document.getElementById('portfolioText').textContent = data.portfolio;
                 document.getElementById('skillsText').textContent = data.skills;
                 document.getElementById('contactText').textContent = data.contact;
-                document.getElementById('hiText').textContent = data.hi;
                 document.getElementById('experienceCountText').textContent = data.experienceCount;
                 document.getElementById('nameText').textContent = data.name;
                 document.getElementById('ageText').textContent = data.age;
